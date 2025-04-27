@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { DefaultFooter } from "./components/ui/Footer";
+import { DefaultHeader } from "./components/ui/Header";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -27,7 +29,15 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <div className="min-h-screen flex flex-col bg-gray-100">
+          <DefaultHeader />
+
+          <main className="flex-1 container mx-auto p-4">
+            {children}
+          </main>
+
+          <DefaultFooter label="© 2025 Netdy" />
+        </div>
       </body>
     </html>
   );
