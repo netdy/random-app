@@ -2,9 +2,11 @@
 import { useState } from "react";
 import { Breadcrumb } from "../../components/ui/Breadcrumb";
 import { Button } from "../../components/ui/Button";
+import { Toast } from "../../components/ui/Toast";
 
 export default function RandomThaiIdPage() {
     const [thaiId, setThaiId] = useState<string>('0-0000-00000-00-0');
+    const [showToast, setShowToast] = useState(false);
 
     const generateThaiId = () => {
         const digits = [];
@@ -26,38 +28,41 @@ export default function RandomThaiIdPage() {
         if (thaiId) {
             const formattedId = thaiId.replace(/-/g, '');
             navigator.clipboard.writeText(formattedId);
+            setShowToast(true); 
         }
     };
 
     const breadcrumbItems = [
         { label: "Homepage", href: "/home" },
-      ];
+    ];
 
     return (
-            <main className="flex-1 container mx-auto p-4 flex flex-col gap-6">
-                <Breadcrumb items={breadcrumbItems} />
-                <h1 className="text-2xl font-bold text-gray-700 ">Random Thai ID Generator</h1>
-                {thaiId && (
-                    <div className="text-3xl font-mono text-primary bg-white p-4 rounded-lg shadow-md">
-                        {thaiId}
-                    </div>
-                )}
-
-                <div className="flex gap-4">
-                    <Button
-                        label="Generate Thai ID"
-                        onClick={generateThaiId}
-                        variant="secondary"
-                    />
-
-                    {thaiId && (
-                        <Button
-                            label="Save"
-                            onClick={handleSave}
-                            className="bg-green-500 text-white font-semibold py-2 px-6 rounded-xl transition-all"
-                        />
-                    )}
+        <main className="flex-1 container mx-auto p-4 flex flex-col gap-6">
+            {showToast && <Toast message="Thai ID copied to clipboard!" onClose={() => setShowToast(false)} />}
+            <Breadcrumb items={breadcrumbItems} />
+            <h1 className="text-2xl font-bold text-gray-700 ">Random Thai ID</h1>
+            {thaiId && (
+                <div className="font-mono text-primary bg-white p-4 rounded-lg shadow-md 
+                    md:text-2xl sm:text-xl text-2xl text-center">
+                    {thaiId}
                 </div>
-            </main>
+            )}
+
+            <div className="flex gap-4">
+                <Button
+                    label="Generate Thai ID"
+                    onClick={generateThaiId}
+                    variant="secondary"
+                />
+
+                {thaiId && (
+                    <Button
+                        label="Save"
+                        onClick={handleSave}
+                        className="bg-red-500 text-white font-semibold py-2 px-6 rounded-xl transition-all"
+                    />
+                )}
+            </div>
+        </main>
     );
 }

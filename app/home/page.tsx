@@ -3,7 +3,7 @@ import { CardList } from "../components/ui/CardList";
 export default function HomePage() {
     const cards = [
         { label: "Random Thai ID" , linkTo: "/home/thai_id" },
-        { label: "Card 2" ,linkTo: "/card1"},
+        { label: "Random Name" ,linkTo: "/home/name" },
     ];
 
     return (
