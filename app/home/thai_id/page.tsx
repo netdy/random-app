@@ -57,9 +57,9 @@ export default function RandomThaiIdPage() {
 
                 {thaiId && (
                     <Button
-                        label="Save"
+                        label="Copy Thai ID"
                         onClick={handleSave}
-                        className="bg-red-500 text-white font-semibold py-2 px-6 rounded-xl transition-all"
+                        className="bg-red-400 text-white font-semibold py-2 px-6 rounded-xl transition-all"
                     />
                 )}
             </div>

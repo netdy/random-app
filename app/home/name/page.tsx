@@ -37,9 +37,10 @@ export default function RandomNamePage() {
     ];
 
     return (
-        <main className="flex flex-col gap-6 container mx-auto p-4">
+        <main className="flex-1 container mx-auto p-4 flex flex-col gap-6">
             <Breadcrumb items={breadcrumbItems} />
             <h1 className="text-2xl font-bold text-gray-700">Random Name Picker</h1>
+
             <div className="flex gap-2">
                 <input
                     type="text"
@@ -79,7 +80,7 @@ export default function RandomNamePage() {
                 <Button
                     label="Random"
                     onClick={handleRandomName}
-                    className="bg-green-500 text-white font-semibold py-2 px-6 rounded-xl transition-all"
+                    className="bg-red-400 text-white font-semibold py-2 px-6 rounded-xl transition-all"
                 />
             )}
 
