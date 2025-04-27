@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 // app/layout.tsx
 export const metadata = {
-  title: "My App",
+  title: "let's make it random",
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
