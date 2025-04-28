@@ -16,7 +16,7 @@ export const Toast = ({ message, onClose }: ToastProps) => {
     }, [message, onClose]);
 
     return (
-        <div className="fixed top-4 right-4 p-4 bg-pink-200 text-white rounded-lg shadow-lg">
+        <div className="fixed top-4 right-4 p-4 bg-pink-200 text-white rounded-lg shadow-lg z-100">
             {message}
         </div>
     );
